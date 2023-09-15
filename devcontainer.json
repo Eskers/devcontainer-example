@@ -1,0 +1,26 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/universal
+{
+	"name": "CS61a",
+	// Use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		// Path is relative to the devcontainer.json file.
+		"dockerfile": "Containerfile"
+	},
+
+	// Mount workspace in container
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,z,rw",
+	"workspaceFolder": "/workspace",
+
+	// Set up default container user and map to host user UID
+	"runArgs": [
+		"--userns=keep-id"
+	],
+
+	"containerUser": "vscode",
+
+	// Mount .ssh so keyfiles are avaliable in container
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,z,ro"
+	]
+}
