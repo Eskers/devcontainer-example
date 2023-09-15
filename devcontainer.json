@@ -5,7 +5,10 @@
 	// Use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build": {
 		// Path is relative to the devcontainer.json file.
-		"dockerfile": "Containerfile"
+		"dockerfile": "Containerfile",
+		"args": {
+			"USERNAME": "vscode"
+		}
 	},
 
 	// Mount workspace in container
