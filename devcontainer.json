@@ -21,9 +21,4 @@
 	],
 
 	"containerUser": "vscode",
-
-	// Mount .ssh so keyfiles are avaliable in container
-	"mounts": [
-		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,z,ro"
-	]
 }
