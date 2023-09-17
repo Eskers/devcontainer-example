@@ -14,11 +14,11 @@ RUN microdnf update -y && \
     # Remove repo metadata to minimise image size
     microdnf clean all -y
 
-# Add vscode user
+# Add user
 RUN useradd -G wheel -m ${USERNAME}
 
 # Copy bashrc
-COPY ./config/bashrc /home/${USERNAME}/.bashrc
-COPY ./config/git.sh /home/${USERNAME}/.bashrc.d/
+COPY --chown=${USERNAME} ./config/bashrc /home/${USERNAME}/.bashrc
+COPY --chown=${USERNAME} ./config/git.sh /home/${USERNAME}/.bashrc.d/
 
 WORKDIR /workspace
